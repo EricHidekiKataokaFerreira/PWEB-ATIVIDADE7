@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="icomoon/style.css">
+
+</head>
+<body onload="followMouse()">
+    <div class="wrap">
+        <div id="ball"></div> 
+     </div>
+     <div class="cursor"></div>
+
+    <header>
+        <h1>Jokenpo.</h1>
+    </header>
+
+    <div class="score-container">
+        <span class="VC">VC</span>
+        <span id="score"></span>
+        <span class="PC">PC</span>
+    </div>
+
+    <div class="button-container">
+        <button class="bn bn1" onclick="jokenpo(this.value)" value="rock"> <i class="far fa-hand-rock"></i></button>
+        <button class="bn bn2" onclick="jokenpo(this.value)" value="paper"> <i class="far fa-hand-paper"></i></button>
+        <button class="bn bn3" onclick="jokenpo(this.value)" value="scissors"> <i class="far fa-hand-scissors"></i></button>
+    </div>
+
+    <div id="challenge">
+        <div id="you">
+            <div id="YourObject"><i class="far fa-hand-rock"></i></div>
+        </div>
+
+        <div id="result"><p id="quem"><p></div>
+
+        <div id="com">
+            <div id="PCObject"></div>
+        </div>
+ </div>
+
+ <footer>
+    <div class="linha"></div> 
+
+     <ul id="contact" class="footer-menushare">
+         <li><a target="_blank" href="https://github.com/EricHidekiKataokaFerreira" class="instagram"><img src="images/github.png" alt=""> <span class="hidden">Github logo</span></a></li>
+         <li><a target="_blank" class="icon-twitter" href="https://twitter.com/KataokaEric"><span class="hidden">Twitter</span></a></li>
+         <li><a target="_blank" href="https://www.instagram.com/hideki.eric/" class="instagram"><img src="images/instagram2.png" alt=""> <span class="hidden">Instagram logo</span></a></li>
+     </ul>
+ </footer>
+
+
+
+    <script type="text/javascript">
+
+        var $ = document.querySelector.bind(document);
+        var $on = document.addEventListener.bind(document);
+    
+        var xmouse, ymouse;
+        $on('mousemove', function(e) {
+            xmouse = e.clientX || e.pageX;
+            ymouse = e.clientY || e.pageY;
+        });
+    
+        var ball = $('#ball');
+        var x = void 0,
+            y = void 0,
+            dx = void 0,
+            dy = void 0,
+            tx = 0,
+            ty = 0,
+            key = -1;
+    
+        var followMouse = function followMouse(){
+            key = requestAnimationFrame(followMouse);
+    
+            if(!x || !y){
+                x = xmouse;
+                y = ymouse;
+            }
+            else{
+                dx = (xmouse - x) * 0.125;
+                dy = (ymouse - y) * 0.125;
+                if(Math.abs(dx) + Math.abs(dy) < 0.1){
+                    x = xmouse;
+                    y = ymouse;
+                }
+                else{
+                    x += dx;
+                    y += dy
+                }
+            }
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+        };
+        </script>
+
+<script>
+    const cursor = document.querySelector('.cursor');
+     document.addEventListener('mousemove', (e)=>{
+         cursor.style.left = e.clientX + 'px';
+         cursor.style.top = e.clientY + 'px';
+     })
+ </script>
+
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: rgb(15, 15, 15);
+  color: white;
+  cursor: none;
+  height: 100vh;
+  position: relative;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+}
+
+.cursor {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: 50%;
+  background-color: #fff;
+  transition: 0.1s;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: difference;
+}
+
+body:hover ~ .cursor {
+  transform: scale(6);
+}
+
+#ball {
+  width: 80px;
+  height: 80px;
+  background: none;
+  border: 1px solid grey;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 999;
+  transition: all 0.1s ease;
+}
+
+header {
+  text-align: center;
+  padding: 75px 0 75px 0px;
+  letter-spacing: 0.15em;
+  border-bottom: solid 1px white;
+  font-size: 1.5em;
+  animation: abaixa 1s ease-in-out;
+}
+
+header h1 {
+  animation: abaixa 1.5s ease-in-out;
+}
+
+.score-container {
+  padding: 150px 0 100px 0;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+  animation: aparece 1.5s ease-in-out;
+}
+
+span {
+  padding: 10px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+button {
+  cursor: none;
+}
+
+.bn {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  background-color: rgb(15, 15, 15);
+  border: 1px white solid;
+  font-size: 30px;
+  font-weight: lighter;
+  color: white;
+  transition: all 0.5s linear;
+}
+
+.bn1 {
+  animation: sobe 1s ease-in-out;
+}
+
+.bn2 {
+  animation: sobe 1.5s ease-in-out;
+}
+
+.bn3 {
+  animation: sobe 2s ease-in-out;
+}
+
+.bn:hover {
+  background-color: white;
+  color: black;
+}
+
+#challenge {
+  text-align: center;
+  padding-top: 130px;
+  display: none;
+  padding-bottom: 100px;
+  margin: auto;
+  animation: abaixa2 1s ease-in-out;
+}
+
+#challenge div {
+  display: inline-block;
+  margin: 0 5px 0 5px;
+}
+
+footer {
+  height: 10vh;
+  margin-top: 100px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  background-color: rgb(15, 15, 15);
+  position: absolute;
+  bottom: 0;
+  animation: sobe2 1s ease-in-out;
+}
+
+.footer-menushare {
+  background: rgb(15, 15, 15);
+  display: block;
+  text-align: center;
+  margin-bottom: 0;
+  padding-top: 40px;
+}
+
+.footer-menushare li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+.footer-menushare a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: white;
+  cursor: none;
+}
+
+.instagram img {
+  height: 17.61px;
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  display: block;
+}
+
+/* Keyframes */
+
+@keyframes sobe {
+  0% {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes sobe2 {
+  0% {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes aparece {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes abaixa {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes abaixa2 {
+  0% {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  30%,
+  75% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+
+  100% {
+    transform: translateY(80px);
+    opacity: 0%;
+  }
+}
